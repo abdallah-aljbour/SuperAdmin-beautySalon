@@ -17,7 +17,7 @@ const salonProfileSchema = new mongoose.Schema({
   email: { type: String, required: true },
   phone: { type: String, required: true },
   address: { type: String, required: true },
-  description: { type: String, required: true },
+  description: { type: String },
   services: [serviceSchema],
   workingHours: {
     monday: workingHoursSchema,
@@ -29,7 +29,7 @@ const salonProfileSchema = new mongoose.Schema({
     sunday: workingHoursSchema
   },
   createdAt: { type: Date, default: Date.now }
-});
+}, { collection: 'salonprofiles' });
 
 const SalonProfile = mongoose.model("SalonProfile", salonProfileSchema);
 
